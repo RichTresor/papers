@@ -4,13 +4,14 @@ import React from "react";
 const Home: React.FC = () => {
   return (
     <div
-      className="flex justify-center items-center w-full bg-cover bg-right bg-no-repeat"
+      className="flex justify-center items-center w-full h-screen bg-cover bg-center bg-no-repeat"
       style={{
-        backgroundImage: `url('https://thedancelab.fr/wp-content/uploads/2024/03/dz.png')`,
+        backgroundImage: `url('/fond.jpg')`,
+        backgroundSize: 'cover',
       }}
     >
-      <div className="max-w-3xl p-8 rounded-lg shadow-lg text-center text-white">
-        <h1 className="text-3xl font-bold mb-4">THE DANCE LAB</h1>
+      <div className="max-w-3xl p-8 rounded-lg shadow-lg text-center text-white bg-black bg-opacity-50">
+        <h1 className="text-3xl font-bold mb-4">Paper's</h1>
         <p className="mb-4">
           Bienvenue chez votre référence bachata sur Lille ! Plongez dans
           l’univers envoûtant de cette danse avec nous. Notre école de danse

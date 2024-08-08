@@ -20,6 +20,8 @@ module.exports = {
       'c6': '#bb3d31',
       'c7': '#cc493e',
       'c8': '#0088CD',
+      'c9': '#1A1A1A',
+      'c10': '#5B5B5C',
       'skeleton': '#f4dfb8'
       
     },},

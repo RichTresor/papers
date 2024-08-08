@@ -10,6 +10,9 @@ import FirstNameInput from "@/components/FirstNameInput";
 import { auth, db } from "@/config/firebase-config"; // Importation de la config Firebase
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
+import Link from "next/link";
+import ButtonGoogle from "@/components/ButtonGoogle";
+import ButtonFacebook from "@/components/ButtonFacebook";
 
 const CreateUserForm: React.FC = () => {
   const [name, setName] = useState("");
@@ -89,11 +92,25 @@ const CreateUserForm: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full p-2">
+    <div className="flex justify-center items-center w-full h-screen bg-gray-100">
       <div className="max-w-sm w-full p-8 bg-white rounded-lg shadow-md">
-        <h1 className="text-center text-2xl mb-6">Créer un compte</h1>
-
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <h1 className="text-center text-2xl mb-2">S'inscrire</h1>
+        <p className="text-center text-sm text-gray-600 mb-4">
+          Déjà membre ?{" "}
+          <Link href="/auth/login" legacyBehavior>
+            <a className="text-red-500 hover:underline">Connexion</a>
+          </Link>
+        </p>
+        <div className="flex flex-col gap-4 mb-4">
+          <ButtonFacebook />
+          <ButtonGoogle />
+        </div>
+        <div className="flex items-center my-4">
+          <hr className="flex-grow border-gray-300" />
+          <span className="mx-2 text-gray-400">OU</span>
+          <hr className="flex-grow border-gray-300" />
+        </div>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <NameInput name={name} setName={setName} />
           <FirstNameInput firstName={firstName} setFirstName={setFirstName} />
           <EmailInput email={email} setEmail={setEmail} />
@@ -101,9 +118,6 @@ const CreateUserForm: React.FC = () => {
           {error && <p className="text-red-500">{error}</p>}
           {message && <p className="text-green-500">{message}</p>}
           <ValidationButton text="Créer un compte" />
-          <a className="text-sm  underline text-center" href="/auth/login">
-            Se connecter
-          </a>
         </form>
       </div>
     </div>

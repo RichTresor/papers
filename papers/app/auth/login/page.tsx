@@ -8,6 +8,9 @@ import ValidationButton from "@/components/ValidationButton";
 import { auth, db } from "@/config/firebase-config"; // Assurez-vous que cette importation est correcte
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
+import Link from "next/link";
+import ButtonGoogle from "@/components/ButtonGoogle";
+import ButtonFacebook from "@/components/ButtonFacebook";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -86,7 +89,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full p-2">
+    <div className="flex justify-center items-center w-full h-screen bg-gray-100">
       <div className="max-w-sm w-full p-8 bg-white rounded-lg shadow-md">
         <h1 className="text-center text-2xl mb-6">Connexion</h1>
 
@@ -97,20 +100,27 @@ const Login: React.FC = () => {
           {message && <p className="text-green-500">{message}</p>}
           <ValidationButton text="Se connecter" />
           <div className="flex justify-around">
-            <a
-              className="text-sm text-light-orange underline text-center"
-              href="/auth/signin"
-            >
-              Créer un compte
-            </a>
-            <a
-              className="text-sm text-light-orange underline text-center"
-              href="/auth/reset_password"
-            >
-              Mot de passe oublié
-            </a>
+            <Link href="/auth/signin" legacyBehavior>
+              <a className="text-sm text-light-orange underline text-center">
+                Créer un compte
+              </a>
+            </Link>
+            <Link href="/auth/reset_password" legacyBehavior>
+              <a className="text-sm text-light-orange underline text-center">
+                Mot de passe oublié
+              </a>
+            </Link>
           </div>
         </form>
+        <div className="flex items-center my-4">
+          <hr className="flex-grow border-gray-300" />
+          <span className="mx-2 text-gray-400">OU</span>
+          <hr className="flex-grow border-gray-300" />
+        </div>
+        <div className="flex flex-col gap-4 mt-4">
+          <ButtonFacebook />
+          <ButtonGoogle />
+        </div>
       </div>
     </div>
   );

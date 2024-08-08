@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "@/config/firebase-config"; // Assurez-vous que cette importation est correcte
+import ValidationButton from "@/components/ValidationButton";
 
 const ResetPassword: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ const ResetPassword: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen w-full">
+    <div className="flex justify-center items-center h-screen w-full bg-gray-100">
       <div className="max-w-sm w-full p-8 bg-white rounded-lg shadow-md">
         <h1 className="text-center text-2xl mb-6">Réinitialiser le mot de passe</h1>
 
@@ -39,9 +40,7 @@ const ResetPassword: React.FC = () => {
           </div>
           {error && <p className="text-red-500">{error}</p>}
           {message && <p className="text-green-500">{message}</p>}
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded">
-            Envoyer l'email de réinitialisation
-          </button>
+          <ValidationButton text="Envoyer l'email de réinitialisation" />
         </form>
       </div>
     </div>
