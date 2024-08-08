@@ -13,7 +13,7 @@ import {
   getDoc,
   Timestamp,
 } from "firebase/firestore";
-
+import SearchBar from "@/components/SearchBar";
 
 interface Cours {
   id: string;
@@ -124,7 +124,10 @@ const PanelEleve: React.FC = () => {
   }
 
   return (
-      <div className="flex flex-col items-center w-full p-3">
+      <div className="flex flex-col items-center w-full p-3 bg-white-100">
+        <SearchBar query={""} setQuery={function (query: string): void {
+              throw new Error("Function not implemented.");
+          } } />
         <h1 className="text-2xl m-4 font-bold">Mes Cours</h1>
         {myCours.length > 0 ? (
           <ul className="md:grid md:grid-cols-2 md:gap-4 w-full max-w-3xl mx-auto text-center">

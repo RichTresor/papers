@@ -29,13 +29,13 @@ const Login: React.FC = () => {
           const userStatus = userData.status;
 
           // Rediriger vers la page appropriée en fonction du statut
-          if (userStatus === "eleve") {
-            router.push("/user/eleve");
-          } else if (userStatus === "professeur") {
-            router.push("/user/professeur");
-          } else if (userStatus === "admin") {
-            router.push("/user/admin");
-          }
+          // if (userStatus === "eleve") {
+          //   router.push("/user/eleve");
+          // } else if (userStatus === "professeur") {
+          //   router.push("/user/professeur");
+          // } else if (userStatus === "admin") {
+          //   router.push("/user/admin");
+          // }
         }
       }
     });
@@ -101,12 +101,12 @@ const Login: React.FC = () => {
           <ValidationButton text="Se connecter" />
           <div className="flex justify-around">
             <Link href="/auth/signin" legacyBehavior>
-              <a className="text-sm text-light-orange underline text-center">
+              <a className="text-sm text-light-orange hover:underline text-center">
                 Créer un compte
               </a>
             </Link>
             <Link href="/auth/reset_password" legacyBehavior>
-              <a className="text-sm text-light-orange underline text-center">
+              <a className="text-sm text-light-orange hover:underline text-center">
                 Mot de passe oublié
               </a>
             </Link>
